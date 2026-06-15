@@ -56,5 +56,11 @@ export default defineConfig({
     // GitHub Pages deployment base path configuration
     base: "/ravindras-bloom/",
     plugins: [generateIndexHtmlPlugin()],
+    build: {
+      // Explicitly set client entry point
+      rollupOptions: {
+        input: "src/client.tsx",
+      },
+    },
   },
 });
