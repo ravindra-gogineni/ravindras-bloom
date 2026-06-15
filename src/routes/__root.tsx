@@ -10,9 +10,6 @@ import { useEffect } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
-// GitHub Pages base path
-const BASE_PATH = "/ravindras-bloom";
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -62,7 +59,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             Try again
           </button>
           <a
-            href={BASE_PATH + "/"}
+            href="#/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Go home
@@ -107,14 +104,6 @@ function RootComponent() {
     if (redirect) {
       sessionStorage.removeItem("redirect");
       router.navigate({ to: redirect });
-    }
-  }, [router]);
-
-  // Navigate to root if we're at the base path due to routing mismatch
-  useEffect(() => {
-    const pathname = window.location.pathname;
-    if (pathname === BASE_PATH + "/" && router.state.location.pathname !== "/") {
-      router.navigate({ to: "/" });
     }
   }, [router]);
 

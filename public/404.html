@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirecting...</title>
     <script>
-        // GitHub Pages SPA routing workaround
+        // GitHub Pages SPA routing workaround with hash-based URLs
         // This 404.html file handles client-side routing by redirecting
-        // to index.html with the original path preserved as a query parameter
+        // to index.html with the original path preserved in the hash
         
-        const path = window.location.pathname.replace(/^\/ravindras-bloom/, '');
-        sessionStorage.redirect = path;
-        window.location.href = '/ravindras-bloom/';
+        const path = window.location.pathname.replace(/^\/ravindras-bloom/, '') || '/';
+        // Redirect to hash-based URL: /ravindras-bloom/#/path
+        window.location.replace('/ravindras-bloom/#' + path);
     </script>
 </head>
 <body>
