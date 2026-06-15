@@ -10,6 +10,8 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    // GitHub Pages base path configuration
+    basename: "/ravindras-bloom",
   });
 
   return router;
