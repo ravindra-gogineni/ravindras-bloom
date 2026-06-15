@@ -56,10 +56,21 @@ export default defineConfig({
     // GitHub Pages deployment base path configuration
     base: "/ravindras-bloom/",
     plugins: [generateIndexHtmlPlugin()],
+    build: {
+      // Build only for client, not SSR
+      ssrManifest: false,
+      lib: undefined, // Disable lib mode
+      rollupOptions: {
+        input: "src/client.tsx",
+      },
+    },
+    ssr: {
+      // Disable SSR
+      noExternal: [],
+    },
   },
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
+    // Disable SSR for GitHub Pages
+    ssr: false,
   },
 });
