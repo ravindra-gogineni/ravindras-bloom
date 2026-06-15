@@ -4,8 +4,7 @@ import {
   Shield, Users, MapPin, Bot, Globe, Star, BookOpen, Heart, Stethoscope,
   Brain, Code2, Layers, Palette, Rocket, HeartHandshake,
 } from "lucide-react";
-// Using a direct image import instead of the asset JSON wrapper
-import beyondBordersCover from "@/assets/beyond-borders.jpg";
+// Using the public directory for static assets
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -333,7 +332,7 @@ function Index() {
             {/* Story 1 */}
             <article className="group relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/70 p-8 shadow-soft backdrop-blur-xl transition hover:-translate-y-1">
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-card">
-                <img src={beyondBordersCover} alt="Beyond Borders of the Heart — book cover" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                <img src="/ravindras-bloom/beyond-borders.jpg" alt="Beyond Borders of the Heart — book cover" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-plum/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-center">
                   <p className="text-xs uppercase tracking-[0.3em] text-white/90 drop-shadow">A short story by Ravindra</p>
