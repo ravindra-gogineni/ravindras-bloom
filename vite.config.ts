@@ -56,21 +56,5 @@ export default defineConfig({
     // GitHub Pages deployment base path configuration
     base: "/ravindras-bloom/",
     plugins: [generateIndexHtmlPlugin()],
-    build: {
-      // Build only for client, not SSR
-      ssrManifest: false,
-      lib: undefined, // Disable lib mode
-      rollupOptions: {
-        input: "src/client.tsx",
-      },
-    },
-    ssr: {
-      // Disable SSR
-      noExternal: [],
-    },
-  },
-  tanstackStart: {
-    // Disable SSR for GitHub Pages
-    ssr: false,
   },
 });

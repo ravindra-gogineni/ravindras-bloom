@@ -10,7 +10,7 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
-    // GitHub Pages base path configuration
+    // GitHub Pages base path - tells router to strip this from pathname for route matching
     basename: "/ravindras-bloom",
   });
 
