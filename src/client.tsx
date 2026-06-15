@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";
 import { getRouter } from "./router";
 
+let shouldRender = true;
+
 // Handle GitHub Pages routing with hash-based URLs
 if (typeof window !== "undefined") {
   const currentPath = window.location.pathname;
@@ -16,23 +18,25 @@ if (typeof window !== "undefined") {
     const routePath = currentPath.slice(basePath.length) || "/";
     console.log("Redirecting to hash-based URL:", basePath + "/#" + routePath);
     window.location.href = basePath + "/#" + routePath;
-    // Exit early - don't continue initialization
-    throw new Error("Redirecting to hash-based URL");
+    shouldRender = false; // Don't render - let redirect complete
   }
 }
 
-const router = getRouter();
+// Only render React if we didn't redirect
+if (shouldRender) {
+  const router = getRouter();
 
-// Handle GitHub Pages routing redirect from 404.html
-const redirect = sessionStorage.getItem("redirect");
-if (redirect) {
-  sessionStorage.removeItem("redirect");
-  console.log("Navigating to redirect:", redirect);
-  router.navigate({ to: redirect });
+  // Handle GitHub Pages routing redirect from 404.html
+  const redirect = sessionStorage.getItem("redirect");
+  if (redirect) {
+    sessionStorage.removeItem("redirect");
+    console.log("Navigating to redirect:", redirect);
+    router.navigate({ to: redirect });
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  );
 }
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
