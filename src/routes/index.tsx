@@ -136,7 +136,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function Index() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-hero">
         <FloatingBlobs />
@@ -331,7 +331,7 @@ function Index() {
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
             {/* Story 1 */}
             <article className="group relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/70 p-8 shadow-soft backdrop-blur-xl transition hover:-translate-y-1">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-card">
+              <div className="relative aspect-video sm:aspect-[3/4] overflow-hidden rounded-2xl shadow-card">
                 <img src="/ravindras-bloom/beyond-borders.jpg" alt="Beyond Borders of the Heart — book cover" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-plum/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-center">
@@ -347,7 +347,7 @@ function Index() {
 
             {/* Story 2 */}
             <article className="group relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/70 p-8 shadow-soft backdrop-blur-xl transition hover:-translate-y-1">
-              <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-lavender via-blush to-cream p-6 shadow-card flex flex-col items-center justify-center text-center">
+              <div className="aspect-video sm:aspect-[3/4] rounded-2xl bg-gradient-to-br from-lavender via-blush to-cream p-6 shadow-card flex flex-col items-center justify-center text-center">
                 <Stethoscope className="h-10 w-10 text-plum drop-shadow" />
                 <p className="mt-5 font-display text-2xl text-plum">Doctors Cure</p>
                 <p className="mt-2 text-xs uppercase tracking-[0.3em] text-plum/70">A short story</p>
